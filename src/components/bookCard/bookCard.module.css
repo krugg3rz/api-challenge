@@ -1,0 +1,31 @@
+.bookCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+  background-color: rgb(97, 97, 97);
+}
+
+.bookTitle {
+  margin: 20px;
+  height: auto;
+  width: auto;
+}
+
+.bookInfo {
+  margin: 20px;
+  height: auto;
+  width: auto;
+}
+
+.bookCard > img {
+  margin: 15px;
+}
+
+img {
+  height: 200px;
+  border-radius: 10px;
+  border: solid 2px #414040;
+}
