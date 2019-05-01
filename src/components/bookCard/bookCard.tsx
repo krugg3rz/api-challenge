@@ -1,30 +1,26 @@
 import * as React from "react";
 import styles from "./bookCard.module.css";
-import { IBook } from "../../reducers/bookReducer";
+import { IBook } from "../../sample";
 import bookReducer, { IBookState } from "../../reducers/bookReducer";
 import FETCH_BOOKS from "../../reducers/bookReducer";
 import store from "../../store/index";
 import cover from "../../assets/tenor.png";
 
-export interface IStore {
-  books: IBookState;
+export interface IProps {
+  book: IBook;
 }
 
-export interface IReactProps {}
-
-export interface IReduxProps {}
-
-class BookCard extends React.Component {
+class BookCard extends React.Component<IProps> {
   public render() {
     return (
       <div className={styles.bookCard}>
         <header className="bookTitle">
-          <h3 className={styles.bookTitle}>Book Title</h3>
-          <h4 className={styles.bookInfo}>Book Bio</h4>
-          <h5 className={styles.bookInfo}>Author</h5>
-          <h6 className={styles.bookInfo}>Number of Pages</h6>
+          <h4 className={styles.bookTitle}>{this.props.book.title}</h4>
+          <p className={styles.bookInfo}>{this.props.book.description}</p>
+          <p className={styles.bookInfo}>{this.props.book.author}</p>
+          <p className={styles.bookInfo}>{this.props.book.pageCount} pages</p>
         </header>
-        <img src={cover} />
+        <img src={this.props.book.picture} />
       </div>
     );
   }

@@ -4,12 +4,13 @@ import store from "./store";
 import "./App.css";
 import BookCard from "./components/bookCard/bookCard";
 import SearchBar from "./components/searchBar/searchBar";
+import { IBook, book } from "./sample";
 
-export interface IReactProps {}
+export interface IProps {
+  // book: IBook;
+}
 
-export interface IReduxProps {}
-
-class App extends Component {
+class App extends Component<IProps> {
   public render() {
     return (
       <Provider store={store}>
@@ -19,7 +20,7 @@ class App extends Component {
               <h2>My Library</h2>
               <SearchBar />
             </div>
-            <BookCard />
+            <BookCard book={book[0]} />
           </header>
         </div>
       </Provider>
