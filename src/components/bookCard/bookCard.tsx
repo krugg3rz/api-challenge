@@ -1,29 +1,35 @@
 import * as React from "react";
 import styles from "./bookCard.module.css";
-import { IBook } from "../../sample";
-import bookReducer, { IBookState } from "../../reducers/bookReducer";
-import FETCH_BOOKS from "../../reducers/bookReducer";
-import store from "../../store/index";
-import cover from "../../assets/tenor.png";
+import { IBook } from "../../reducers/bookReducer";
 
-export interface IProps {
-  book: IBook;
-}
+export interface IProps {}
 
-class BookCard extends React.Component<IProps> {
+class BookCard extends React.Component<IBook> {
   public render() {
     return (
       <div className={styles.bookCard}>
         <header className="bookTitle">
-          <h4 className={styles.bookTitle}>{this.props.book.title}</h4>
-          <p className={styles.bookInfo}>{this.props.book.description}</p>
-          <p className={styles.bookInfo}>{this.props.book.author}</p>
-          <p className={styles.bookInfo}>{this.props.book.pageCount} pages</p>
+          <h4 className={styles.bookTitle}>{this.props.volumeInfo.title}</h4>
+          <p className={styles.bookInfo}>{this.props.volumeInfo.description}</p>
+          <p className={styles.bookInfo}>{this.props.volumeInfo.}</p>
+          <p className={styles.bookInfo}>{this.props.volumeInfo.pageCount} pages</p>
         </header>
-        <img src={this.props.book.picture} />
+        <img src={this.props.volumeInfo.imageLinks.thumbnail} />
       </div>
     );
   }
 }
 
-export default BookCard;
+const mapStateToProps = (state: IStore, props: IReactProps) => {
+  return {
+    searchText: state.general.searchText,
+    cards: state.cards.cards
+  };
+};
+
+const mapDispatchToProps = { setSearchText, fetchCards };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TopTrumpContainer);

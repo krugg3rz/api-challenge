@@ -1,4 +1,5 @@
 .bookCard {
+  color: rgb(226, 226, 226);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,6 +7,7 @@
   height: auto;
   width: 600px;
   background-color: rgb(97, 97, 97);
+  margin: 10px;
 }
 
 .bookTitle {

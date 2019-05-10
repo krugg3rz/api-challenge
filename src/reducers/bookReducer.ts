@@ -1,6 +1,25 @@
+import { string } from "prop-types";
+
 // IBook interface
 
-export interface IBook {}
+export interface IBook {
+  volumeInfo: IVolumeInfo;
+  saleInfo: {
+    buyLink: string;
+  };
+}
+
+export interface IVolumeInfo {
+  title: string;
+  publishedDate: string;
+  description: string;
+  pageCount: number;
+  categories: string[];
+  averagerating: number;
+  imageLinks: {
+    thumbnail: string;
+  };
+}
 
 // action types
 export const FETCH_BOOKS = "FETCH_BOOKS";
